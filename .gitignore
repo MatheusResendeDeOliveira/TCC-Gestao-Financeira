@@ -1,0 +1,31 @@
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+# [Dd]ebug/
+# [Rr]elease/
+# x64/
+[Bb]in/
+[Oo]bj/
+Release/Publicacao/EMSmart.ETL/*
+# GestaoFinanceira/.vs/GestaoFinanceira/FileContentIndex/
+
+# NuGet Packages Directory
+packages/
+
+# VS
+.vs/
+
+# Build
+/Build/Logs/
+/Build/Setup/
+/Build/InspectCode/
+
+# Logs
+erros/
+logs/
+
+# Windows image file caches
+Thumbs.db
