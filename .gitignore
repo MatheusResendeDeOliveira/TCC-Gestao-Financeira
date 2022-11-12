@@ -10,7 +10,8 @@
 [Bb]in/
 [Oo]bj/
 Release/Publicacao/EMSmart.ETL/*
-# GestaoFinanceira/.vs/GestaoFinanceira/FileContentIndex/
+# GestaoFinanceira/.vs/GestaoFinanceira/*
+
 
 # NuGet Packages Directory
 packages/
