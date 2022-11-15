@@ -33,11 +33,7 @@
             this.txtInsiraSalario = new System.Windows.Forms.TextBox();
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.lblSalario = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblSaldoGuardado = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblDespesasMensais = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.dgvLancamentos = new System.Windows.Forms.DataGridView();
             this.txValorLancamento = new System.Windows.Forms.TextBox();
             this.txDescricao = new System.Windows.Forms.TextBox();
             this.msktxtDataLancamento = new System.Windows.Forms.MaskedTextBox();
@@ -53,7 +49,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txAno = new System.Windows.Forms.TextBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblDespesasMensais = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblSalarioRestante = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@
             this.btnSalvarSalario.TabIndex = 0;
             this.btnSalvarSalario.Text = "Salvar";
             this.btnSalvarSalario.UseVisualStyleBackColor = true;
+            this.btnSalvarSalario.Click += new System.EventHandler(this.btnSalvarSalario_Click);
             // 
             // lblInsiraSalario
             // 
@@ -99,53 +100,17 @@
             this.lblSalario.TabIndex = 6;
             this.lblSalario.Text = "Salario";
             // 
-            // dataGridView1
+            // dgvLancamentos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 84);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(741, 470);
-            this.dataGridView1.TabIndex = 8;
-            // 
-            // lblSaldoGuardado
-            // 
-            this.lblSaldoGuardado.AutoSize = true;
-            this.lblSaldoGuardado.Location = new System.Drawing.Point(701, 35);
-            this.lblSaldoGuardado.Name = "lblSaldoGuardado";
-            this.lblSaldoGuardado.Size = new System.Drawing.Size(47, 15);
-            this.lblSaldoGuardado.TabIndex = 10;
-            this.lblSaldoGuardado.Text = "R$ 2300";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(597, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Saldo guardado";
-            // 
-            // lblDespesasMensais
-            // 
-            this.lblDespesasMensais.AutoSize = true;
-            this.lblDespesasMensais.Location = new System.Drawing.Point(701, 9);
-            this.lblDespesasMensais.Name = "lblDespesasMensais";
-            this.lblDespesasMensais.Size = new System.Drawing.Size(47, 15);
-            this.lblDespesasMensais.TabIndex = 12;
-            this.lblDespesasMensais.Text = "R$ 1700";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(597, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 15);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Despesas mensais:";
+            this.dgvLancamentos.AllowUserToAddRows = false;
+            this.dgvLancamentos.AllowUserToDeleteRows = false;
+            this.dgvLancamentos.AllowUserToOrderColumns = true;
+            this.dgvLancamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLancamentos.Location = new System.Drawing.Point(6, 84);
+            this.dgvLancamentos.Name = "dgvLancamentos";
+            this.dgvLancamentos.ReadOnly = true;
+            this.dgvLancamentos.Size = new System.Drawing.Size(741, 470);
+            this.dgvLancamentos.TabIndex = 8;
             // 
             // txValorLancamento
             // 
@@ -190,7 +155,7 @@
             this.groupBox1.Controls.Add(this.cbbTipoDeMovimentacao);
             this.groupBox1.Controls.Add(this.txValorLancamento);
             this.groupBox1.Controls.Add(this.txDescricao);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvLancamentos);
             this.groupBox1.Location = new System.Drawing.Point(12, 110);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(777, 567);
@@ -287,11 +252,47 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
+            // lblDespesasMensais
+            // 
+            this.lblDespesasMensais.AutoSize = true;
+            this.lblDespesasMensais.Location = new System.Drawing.Point(701, 9);
+            this.lblDespesasMensais.Name = "lblDespesasMensais";
+            this.lblDespesasMensais.Size = new System.Drawing.Size(0, 15);
+            this.lblDespesasMensais.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(597, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 15);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Despesas mensais:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(597, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 15);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Salario restante:";
+            // 
+            // lblSalarioRestante
+            // 
+            this.lblSalarioRestante.AutoSize = true;
+            this.lblSalarioRestante.Location = new System.Drawing.Point(701, 42);
+            this.lblSalarioRestante.Name = "lblSalarioRestante";
+            this.lblSalarioRestante.Size = new System.Drawing.Size(0, 15);
+            this.lblSalarioRestante.TabIndex = 29;
+            // 
             // GestaoFinanceira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 693);
+            this.Controls.Add(this.lblSalarioRestante);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.txAno);
             this.Controls.Add(this.label8);
@@ -300,8 +301,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblDespesasMensais);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblSaldoGuardado);
             this.Controls.Add(this.lblSalario);
             this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.lblInsiraSalario);
@@ -309,7 +308,7 @@
             this.Controls.Add(this.btnSalvarSalario);
             this.Name = "GestaoFinanceira";
             this.Text = "GestaoFinanceira";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -322,11 +321,7 @@
         private System.Windows.Forms.TextBox txtInsiraSalario;
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.Label lblSalario;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lblSaldoGuardado;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblDespesasMensais;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvLancamentos;
         public System.Windows.Forms.Button btnSalvarSalario;
         private TextBox txValorLancamento;
         private TextBox txDescricao;
@@ -343,5 +338,9 @@
         private Label label8;
         private TextBox txAno;
         private Button btnFiltrar;
+        private Label lblDespesasMensais;
+        private Label label7;
+        private Label label5;
+        private Label lblSalarioRestante;
     }
 }

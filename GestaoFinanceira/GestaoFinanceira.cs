@@ -98,6 +98,41 @@ public partial class GestaoFinanceira : Form
     public void CarregarLancamentosComFiltro(int mes, int ano)
     {
         List<Movimentacoes> lancamentos = mapeador.BuscarLancamentos(mes, ano);
-        this.dataGridView1.DataSource = lancamentos;
+        this.dgvLancamentos.DataSource = lancamentos;
+
+        foreach (DataGridViewColumn column in dgvLancamentos.Columns)
+        {
+            if (column.DataPropertyName == "DataLancamento")
+                column.Name = "Data de Lancamento";
+
+            if (column.DataPropertyName == "TipoDeMovimentacao")
+                column.Name = "Movimentação";
+
+            if (column.DataPropertyName == "Valores")
+                column.Name = "Valor gasto";
+
+            if (column.DataPropertyName == "Descricao")
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        double despesas = 0;
+        double salario = Convert.ToDouble(txtSalario.Text);
+
+        foreach (Movimentacoes movimentacoes in lancamentos)
+        {
+            despesas += movimentacoes.Valores;
+            salario -= movimentacoes.Valores;
+        }
+
+        lblDespesasMensais.Text = "R$ " + despesas.ToString();
+        lblSalarioRestante.Text = "R$ " + salario.ToString();
+    }
+
+    private void btnSalvarSalario_Click(object sender, EventArgs e)
+    {
+        double salario = Convert.ToDouble(txtInsiraSalario.Text);
+        mapeador.InserirSalario(salario);
+        CarregaInformacoes();
+        txtInsiraSalario.Text = "";
     }
 }

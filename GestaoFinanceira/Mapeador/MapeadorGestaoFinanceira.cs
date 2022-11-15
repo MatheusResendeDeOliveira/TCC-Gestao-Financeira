@@ -129,4 +129,32 @@ public class MapeadorGestaoFinanceira
             }
         }
     }
+
+    public void InserirSalario(double salario)
+    {
+        using (DbConnection conexao = getInstancia().getConexao())
+        {
+            try
+            {
+                conexao.Open();
+                using DbCommand cmd = conexao.CreateCommand();
+                cmd.CommandText = "DELETE FROM TBSALARIO";
+                cmd.ExecuteNonQuery();
+
+                cmd.CommandText = $@"INSERT INTO TBSALARIO(SALARIO) VALUES({salario})";
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Salario atualizado com sucesso!");
+            }
+            catch (FbException fbex)
+            {
+                MessageBox.Show(fbex.Message, "Erro");
+                return;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+    }
 }
