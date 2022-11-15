@@ -69,6 +69,34 @@ public class MapeadorGestaoFinanceira
         }
     }
 
+    public void InserirLancamento(Movimentacoes movimentacao)
+    {
+        using (DbConnection conexao = getInstancia().getConexao())
+        {
+            try
+            {
+                conexao.Open();
+                using DbCommand cmd = conexao.CreateCommand();
+                cmd.CommandText =
+                    $@"INSERT INTO TBDADOS(DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO, MES, ANO) 
+                       VALUES ('{movimentacao.DataLancamento.Year}-{movimentacao.DataLancamento.Month}-{movimentacao.DataLancamento.Day}',
+                        {movimentacao.TipoDeMovimentacao}, {movimentacao.Valores}, '{movimentacao.Descricao}', {movimentacao.DataLancamento.Month}, {movimentacao.DataLancamento.Year})";
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (FbException fbex)
+            {
+                MessageBox.Show(fbex.Message, "Erro");
+                return;
+            }
+            finally
+            {
+                conexao.Close();
+                MessageBox.Show("Lancamento salvo com sucesso!");
+            }
+        }
+    }
+
     public Salario InformacoesTela()
     {
         using (DbConnection conexao = getInstancia().getConexao())

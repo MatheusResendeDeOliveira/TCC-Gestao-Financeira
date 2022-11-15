@@ -38,8 +38,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblDespesasMensais = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txValorLancamento = new System.Windows.Forms.TextBox();
+            this.txDescricao = new System.Windows.Forms.TextBox();
             this.msktxtDataLancamento = new System.Windows.Forms.MaskedTextBox();
             this.cbbTipoDeMovimentacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -147,19 +147,19 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Despesas mensais:";
             // 
-            // textBox3
+            // txValorLancamento
             // 
-            this.textBox3.Location = new System.Drawing.Point(205, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(195, 23);
-            this.textBox3.TabIndex = 16;
+            this.txValorLancamento.Location = new System.Drawing.Point(205, 54);
+            this.txValorLancamento.Name = "txValorLancamento";
+            this.txValorLancamento.Size = new System.Drawing.Size(94, 23);
+            this.txValorLancamento.TabIndex = 16;
             // 
-            // textBox4
+            // txDescricao
             // 
-            this.textBox4.Location = new System.Drawing.Point(406, 54);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 23);
-            this.textBox4.TabIndex = 17;
+            this.txDescricao.Location = new System.Drawing.Point(318, 54);
+            this.txDescricao.Name = "txDescricao";
+            this.txDescricao.Size = new System.Drawing.Size(315, 23);
+            this.txDescricao.TabIndex = 17;
             // 
             // msktxtDataLancamento
             // 
@@ -188,8 +188,8 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.msktxtDataLancamento);
             this.groupBox1.Controls.Add(this.cbbTipoDeMovimentacao);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txValorLancamento);
+            this.groupBox1.Controls.Add(this.txDescricao);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 110);
             this.groupBox1.Name = "groupBox1";
@@ -210,7 +210,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(406, 19);
+            this.label4.Location = new System.Drawing.Point(318, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 15);
             this.label4.TabIndex = 24;
@@ -328,8 +328,8 @@
         private System.Windows.Forms.Label lblDespesasMensais;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Button btnSalvarSalario;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox txValorLancamento;
+        private TextBox txDescricao;
         private MaskedTextBox msktxtDataLancamento;
         private ComboBox cbbTipoDeMovimentacao;
         private GroupBox groupBox1;

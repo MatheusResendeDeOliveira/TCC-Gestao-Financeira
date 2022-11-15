@@ -11,7 +11,7 @@ public class Movimentacoes
 
     public string? TipoDeMovimentacao { get; set; }
 
-    public float Valores { get; set; }
+    public double Valores { get; set; }
 
     public string? Descricao { get; set; }
 }
