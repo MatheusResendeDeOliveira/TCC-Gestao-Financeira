@@ -30,11 +30,9 @@
         {
             this.btnSalvarSalario = new System.Windows.Forms.Button();
             this.lblInsiraSalario = new System.Windows.Forms.Label();
-            this.txtInsiraSalarioBruto = new System.Windows.Forms.TextBox();
-            this.txtSalarioBruto = new System.Windows.Forms.TextBox();
-            this.txtSalarioLiquido = new System.Windows.Forms.TextBox();
-            this.lblSalarioBruto = new System.Windows.Forms.Label();
-            this.lblSalarioLiquido = new System.Windows.Forms.Label();
+            this.txtInsiraSalario = new System.Windows.Forms.TextBox();
+            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.lblSalario = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblSaldoGuardado = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,18 +41,18 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.msktxtDataLancamento = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbTipoDeMovimentacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAdicionarLancamento = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnNovoTipoDeMovimentacao = new System.Windows.Forms.Button();
             this.cbbMes = new System.Windows.Forms.ComboBox();
-            this.cbbAno = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.txAno = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,50 +71,33 @@
             this.lblInsiraSalario.AutoSize = true;
             this.lblInsiraSalario.Location = new System.Drawing.Point(12, 9);
             this.lblInsiraSalario.Name = "lblInsiraSalario";
-            this.lblInsiraSalario.Size = new System.Drawing.Size(104, 15);
+            this.lblInsiraSalario.Size = new System.Drawing.Size(72, 15);
             this.lblInsiraSalario.TabIndex = 1;
-            this.lblInsiraSalario.Text = "Insira salario bruto";
+            this.lblInsiraSalario.Text = "Insira salario";
             // 
-            // txtInsiraSalarioBruto
+            // txtInsiraSalario
             // 
-            this.txtInsiraSalarioBruto.Location = new System.Drawing.Point(12, 25);
-            this.txtInsiraSalarioBruto.Name = "txtInsiraSalarioBruto";
-            this.txtInsiraSalarioBruto.Size = new System.Drawing.Size(199, 23);
-            this.txtInsiraSalarioBruto.TabIndex = 2;
+            this.txtInsiraSalario.Location = new System.Drawing.Point(12, 25);
+            this.txtInsiraSalario.Name = "txtInsiraSalario";
+            this.txtInsiraSalario.Size = new System.Drawing.Size(199, 23);
+            this.txtInsiraSalario.TabIndex = 2;
             // 
-            // txtSalarioBruto
+            // txtSalario
             // 
-            this.txtSalarioBruto.Enabled = false;
-            this.txtSalarioBruto.Location = new System.Drawing.Point(373, 28);
-            this.txtSalarioBruto.Name = "txtSalarioBruto";
-            this.txtSalarioBruto.Size = new System.Drawing.Size(143, 23);
-            this.txtSalarioBruto.TabIndex = 4;
+            this.txtSalario.Enabled = false;
+            this.txtSalario.Location = new System.Drawing.Point(333, 23);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(143, 23);
+            this.txtSalario.TabIndex = 4;
             // 
-            // txtSalarioLiquido
+            // lblSalario
             // 
-            this.txtSalarioLiquido.Enabled = false;
-            this.txtSalarioLiquido.Location = new System.Drawing.Point(553, 28);
-            this.txtSalarioLiquido.Name = "txtSalarioLiquido";
-            this.txtSalarioLiquido.Size = new System.Drawing.Size(143, 23);
-            this.txtSalarioLiquido.TabIndex = 5;
-            // 
-            // lblSalarioBruto
-            // 
-            this.lblSalarioBruto.AutoSize = true;
-            this.lblSalarioBruto.Location = new System.Drawing.Point(370, 9);
-            this.lblSalarioBruto.Name = "lblSalarioBruto";
-            this.lblSalarioBruto.Size = new System.Drawing.Size(74, 15);
-            this.lblSalarioBruto.TabIndex = 6;
-            this.lblSalarioBruto.Text = "Salario bruto";
-            // 
-            // lblSalarioLiquido
-            // 
-            this.lblSalarioLiquido.AutoSize = true;
-            this.lblSalarioLiquido.Location = new System.Drawing.Point(550, 9);
-            this.lblSalarioLiquido.Name = "lblSalarioLiquido";
-            this.lblSalarioLiquido.Size = new System.Drawing.Size(82, 15);
-            this.lblSalarioLiquido.TabIndex = 7;
-            this.lblSalarioLiquido.Text = "Salario liquido";
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Location = new System.Drawing.Point(330, 4);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(42, 15);
+            this.lblSalario.TabIndex = 6;
+            this.lblSalario.Text = "Salario";
             // 
             // dataGridView1
             // 
@@ -133,7 +114,7 @@
             // lblSaldoGuardado
             // 
             this.lblSaldoGuardado.AutoSize = true;
-            this.lblSaldoGuardado.Location = new System.Drawing.Point(841, 35);
+            this.lblSaldoGuardado.Location = new System.Drawing.Point(701, 35);
             this.lblSaldoGuardado.Name = "lblSaldoGuardado";
             this.lblSaldoGuardado.Size = new System.Drawing.Size(47, 15);
             this.lblSaldoGuardado.TabIndex = 10;
@@ -142,7 +123,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(737, 35);
+            this.label5.Location = new System.Drawing.Point(597, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 15);
             this.label5.TabIndex = 11;
@@ -151,7 +132,7 @@
             // lblDespesasMensais
             // 
             this.lblDespesasMensais.AutoSize = true;
-            this.lblDespesasMensais.Location = new System.Drawing.Point(841, 9);
+            this.lblDespesasMensais.Location = new System.Drawing.Point(701, 9);
             this.lblDespesasMensais.Name = "lblDespesasMensais";
             this.lblDespesasMensais.Size = new System.Drawing.Size(47, 15);
             this.lblDespesasMensais.TabIndex = 12;
@@ -160,7 +141,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(737, 9);
+            this.label7.Location = new System.Drawing.Point(597, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 15);
             this.label7.TabIndex = 13;
@@ -189,13 +170,14 @@
             this.msktxtDataLancamento.TabIndex = 18;
             this.msktxtDataLancamento.ValidatingType = typeof(System.DateTime);
             // 
-            // comboBox1
+            // cbbTipoDeMovimentacao
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 19;
+            this.cbbTipoDeMovimentacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTipoDeMovimentacao.FormattingEnabled = true;
+            this.cbbTipoDeMovimentacao.Location = new System.Drawing.Point(70, 54);
+            this.cbbTipoDeMovimentacao.Name = "cbbTipoDeMovimentacao";
+            this.cbbTipoDeMovimentacao.Size = new System.Drawing.Size(121, 23);
+            this.cbbTipoDeMovimentacao.TabIndex = 19;
             // 
             // groupBox1
             // 
@@ -205,13 +187,13 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.msktxtDataLancamento);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cbbTipoDeMovimentacao);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Location = new System.Drawing.Point(12, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(876, 595);
+            this.groupBox1.Size = new System.Drawing.Size(777, 567);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             // 
@@ -261,31 +243,14 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "Data";
             // 
-            // btnNovoTipoDeMovimentacao
-            // 
-            this.btnNovoTipoDeMovimentacao.Location = new System.Drawing.Point(737, 57);
-            this.btnNovoTipoDeMovimentacao.Name = "btnNovoTipoDeMovimentacao";
-            this.btnNovoTipoDeMovimentacao.Size = new System.Drawing.Size(151, 47);
-            this.btnNovoTipoDeMovimentacao.TabIndex = 21;
-            this.btnNovoTipoDeMovimentacao.Text = "Cadastrar tipo de movimentação";
-            this.btnNovoTipoDeMovimentacao.UseVisualStyleBackColor = true;
-            this.btnNovoTipoDeMovimentacao.Click += new System.EventHandler(this.btnNovoTipoDeMovimentacao_Click);
-            // 
             // cbbMes
             // 
+            this.cbbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMes.FormattingEnabled = true;
             this.cbbMes.Location = new System.Drawing.Point(97, 81);
             this.cbbMes.Name = "cbbMes";
             this.cbbMes.Size = new System.Drawing.Size(114, 23);
             this.cbbMes.TabIndex = 22;
-            // 
-            // cbbAno
-            // 
-            this.cbbAno.FormattingEnabled = true;
-            this.cbbAno.Location = new System.Drawing.Point(12, 81);
-            this.cbbAno.Name = "cbbAno";
-            this.cbbAno.Size = new System.Drawing.Size(79, 23);
-            this.cbbAno.TabIndex = 23;
             // 
             // label6
             // 
@@ -305,27 +270,42 @@
             this.label8.TabIndex = 25;
             this.label8.Text = "Ano";
             // 
+            // txAno
+            // 
+            this.txAno.Location = new System.Drawing.Point(12, 81);
+            this.txAno.Name = "txAno";
+            this.txAno.Size = new System.Drawing.Size(72, 23);
+            this.txAno.TabIndex = 26;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Location = new System.Drawing.Point(217, 80);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.TabIndex = 27;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
             // GestaoFinanceira
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 720);
+            this.ClientSize = new System.Drawing.Size(803, 693);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.txAno);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.cbbAno);
             this.Controls.Add(this.cbbMes);
-            this.Controls.Add(this.btnNovoTipoDeMovimentacao);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblDespesasMensais);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblSaldoGuardado);
-            this.Controls.Add(this.lblSalarioLiquido);
-            this.Controls.Add(this.lblSalarioBruto);
-            this.Controls.Add(this.txtSalarioLiquido);
-            this.Controls.Add(this.txtSalarioBruto);
+            this.Controls.Add(this.lblSalario);
+            this.Controls.Add(this.txtSalario);
             this.Controls.Add(this.lblInsiraSalario);
-            this.Controls.Add(this.txtInsiraSalarioBruto);
+            this.Controls.Add(this.txtInsiraSalario);
             this.Controls.Add(this.btnSalvarSalario);
             this.Name = "GestaoFinanceira";
             this.Text = "GestaoFinanceira";
@@ -339,11 +319,9 @@
 
         #endregion
         private System.Windows.Forms.Label lblInsiraSalario;
-        private System.Windows.Forms.TextBox txtInsiraSalarioBruto;
-        private System.Windows.Forms.TextBox txtSalarioBruto;
-        private System.Windows.Forms.TextBox txtSalarioLiquido;
-        private System.Windows.Forms.Label lblSalarioBruto;
-        private System.Windows.Forms.Label lblSalarioLiquido;
+        private System.Windows.Forms.TextBox txtInsiraSalario;
+        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.Label lblSalario;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblSaldoGuardado;
         private System.Windows.Forms.Label label5;
@@ -353,17 +331,17 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private MaskedTextBox msktxtDataLancamento;
-        private ComboBox comboBox1;
+        private ComboBox cbbTipoDeMovimentacao;
         private GroupBox groupBox1;
         private Label label4;
         private Label label1;
         private Label label2;
         private Label label3;
         private Button btnAdicionarLancamento;
-        private Button btnNovoTipoDeMovimentacao;
         private ComboBox cbbMes;
-        private ComboBox cbbAno;
         private Label label6;
         private Label label8;
+        private TextBox txAno;
+        private Button btnFiltrar;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GestaoFinanceira.Campos;
+using GestaoFinanceira.Gerenciamento;
 using GestaoFinanceira.Mapeador;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,18 @@ public partial class GestaoFinanceira : Form
     public GestaoFinanceira()
     {
         InitializeComponent();
-        AplicarMascara(txtInsiraSalarioBruto);
+        AplicarMascara(txtInsiraSalario);
         CarregaInformacoes();
     }
 
     public void CarregaInformacoes()
     {
-        this.dataGridView1.DataSource = mapeador.BuscarLancamentos();
+        Enumerador enumerador = new();
+
+        this.cbbTipoDeMovimentacao.DataSource = enumerador.TipoDeMovimentacao();
+        this.cbbMes.DataSource = enumerador.Meses();
+        Salario salario = mapeador.InformacoesTela();
+        txtSalario.Text = salario.salario.ToString();
     }
 
     public void AplicarMascara(TextBox txt)
@@ -46,5 +52,12 @@ public partial class GestaoFinanceira : Form
     {
         frmTipoDeLancamento cadastro = new();
         cadastro.ShowDialog();
+    }
+
+    private void btnFiltrar_Click(object sender, EventArgs e)
+    {
+        List<Movimentacoes> lancamentos = mapeador.BuscarLancamentos();
+
+        this.dataGridView1.DataSource = lancamentos;
     }
 }

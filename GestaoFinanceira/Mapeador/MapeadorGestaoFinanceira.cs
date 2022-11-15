@@ -38,7 +38,8 @@ public class MapeadorGestaoFinanceira
                 conexao.Open();
                 List<Movimentacoes> movimentacoes = new();
                 using DbCommand cmd = conexao.CreateCommand();
-                cmd.CommandText = "SELECT DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO FROM TBDADOS";
+                cmd.CommandText =
+                    @"SELECT DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO FROM TBDADOS";
 
                 using DbDataReader dr = cmd.ExecuteReader();
 
@@ -48,7 +49,8 @@ public class MapeadorGestaoFinanceira
                     movimentacao.Valores = dr.GetInt16("valores");
                     movimentacao.DataLancamento = dr.GetDateTime("DATAGASTOS");
                     movimentacao.Descricao = dr.GetString("DESCRICAO");
-
+                    Movimentacao tipoMovimentacao = (Movimentacao)dr.GetInt16("TIPOMOVIMENTACAO");
+                    movimentacao.TipoDeMovimentacao = tipoMovimentacao.ToString();
                     movimentacoes.Add(movimentacao);
                 }
 
@@ -56,7 +58,7 @@ public class MapeadorGestaoFinanceira
             }
             catch (FbException fbex)
             {
-                MessageBox.Show("Erro de acesso ao MySQL : " + fbex.Message, "Erro");
+                MessageBox.Show(fbex.Message, "Erro");
                 return new List<Movimentacoes>();
             }
             finally
@@ -66,35 +68,31 @@ public class MapeadorGestaoFinanceira
         }
     }
 
-    public List<Movimentacoes> InformacoesTela()
+    public Salario InformacoesTela()
     {
         using (DbConnection conexao = getInstancia().getConexao())
         {
             try
             {
                 conexao.Open();
-                List<Movimentacoes> movimentacoes = new();
                 using DbCommand cmd = conexao.CreateCommand();
-                cmd.CommandText = "SELECT DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO FROM TBDADOS";
+                cmd.CommandText = "SELECT * FROM TBSALARIO";
 
                 using DbDataReader dr = cmd.ExecuteReader();
 
+                Salario salario = new();
+
                 while (dr.Read())
                 {
-                    Movimentacoes movimentacao = new();
-                    movimentacao.Valores = dr.GetInt16("valores");
-                    movimentacao.DataLancamento = dr.GetDateTime("DATAGASTOS");
-                    movimentacao.Descricao = dr.GetString("DESCRICAO");
-
-                    movimentacoes.Add(movimentacao);
+                    salario.salario = dr.GetFloat("SALARIO");
                 }
 
-                return movimentacoes;
+                return salario;
             }
             catch (FbException fbex)
             {
                 MessageBox.Show("Erro de acesso ao MySQL : " + fbex.Message, "Erro");
-                return new List<Movimentacoes>();
+                return new Salario();
             }
             finally
             {
