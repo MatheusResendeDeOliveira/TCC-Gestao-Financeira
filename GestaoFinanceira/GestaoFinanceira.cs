@@ -56,8 +56,16 @@ public partial class GestaoFinanceira : Form
 
     private void btnFiltrar_Click(object sender, EventArgs e)
     {
-        List<Movimentacoes> lancamentos = mapeador.BuscarLancamentos();
-
+        int mes = cbbMes.SelectedIndex;
+        
+        if(txAno.Text == "")
+        {
+            MessageBox.Show("O campo ano é de preenchimento obrigatório.");
+            return;
+        }
+        
+        int ano = Convert.ToInt16(txAno.Text);
+        List<Movimentacoes> lancamentos = mapeador.BuscarLancamentos(mes, ano);
         this.dataGridView1.DataSource = lancamentos;
     }
 }

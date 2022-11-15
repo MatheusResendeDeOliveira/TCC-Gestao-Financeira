@@ -29,7 +29,7 @@ public class MapeadorGestaoFinanceira
         return new FbConnection(conn);
     }
 
-    public List<Movimentacoes> BuscarLancamentos()
+    public List<Movimentacoes> BuscarLancamentos(int mes, int ano)
     {
         using (DbConnection conexao = getInstancia().getConexao())
         {
@@ -39,7 +39,8 @@ public class MapeadorGestaoFinanceira
                 List<Movimentacoes> movimentacoes = new();
                 using DbCommand cmd = conexao.CreateCommand();
                 cmd.CommandText =
-                    @"SELECT DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO FROM TBDADOS";
+                    $@"SELECT DATAGASTOS, TIPOMOVIMENTACAO, VALORES, DESCRICAO FROM TBDADOS
+                      WHERE MES = {mes} AND ANO ={ano}";
 
                 using DbDataReader dr = cmd.ExecuteReader();
 

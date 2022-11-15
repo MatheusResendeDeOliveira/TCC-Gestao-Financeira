@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 namespace GestaoFinanceira.Gerenciamento;
 public enum Movimentacao
 {
-    Comida = 1,
-    Carro = 2,
-    Compras = 3,
-    Lazer = 4
+    Aluguel,
+    Contas,
+    Comida,
+    Carro,
+    Compras,
+    Lazer,
+    Outros
 }
 
 public enum Mes
@@ -35,10 +38,13 @@ public class Enumerador
     public List<Movimentacao> TipoDeMovimentacao() =>
         new()
         {
+            Movimentacao.Aluguel,
+            Movimentacao.Contas,
             Movimentacao.Comida,
             Movimentacao.Carro,
             Movimentacao.Compras,
-            Movimentacao.Lazer
+            Movimentacao.Lazer,
+            Movimentacao.Outros
         };
 
     public List<Mes> Meses() =>
