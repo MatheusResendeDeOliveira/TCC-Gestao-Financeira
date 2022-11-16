@@ -103,13 +103,13 @@ public partial class GestaoFinanceira : Form
         foreach (DataGridViewColumn column in dgvLancamentos.Columns)
         {
             if (column.DataPropertyName == "DataLancamento")
-                column.Name = "Data de Lancamento";
+                column.HeaderText = "Data de Lancamento";
 
             if (column.DataPropertyName == "TipoDeMovimentacao")
-                column.Name = "Movimentação";
+                column.HeaderText = "Movimentação";
 
             if (column.DataPropertyName == "Valores")
-                column.Name = "Valor gasto";
+                column.HeaderText = "Valor gasto";
 
             if (column.DataPropertyName == "Descricao")
                 column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
