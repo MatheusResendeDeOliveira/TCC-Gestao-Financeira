@@ -23,7 +23,6 @@ C:\TCC\GestaoFinanceira\GestaoFinanceira\obj\Debug\net6.0-windows\GestaoFinancei
 C:\TCC\GestaoFinanceira\GestaoFinanceira\obj\Debug\net6.0-windows\GestaoFinanceira.genruntimeconfig.cache
 C:\TCC\GestaoFinanceira\GestaoFinanceira\obj\Debug\net6.0-windows\ref\GestaoFinanceira.dll
 C:\TCC\GestaoFinanceira\GestaoFinanceira\obj\Debug\net6.0-windows\GestaoFinanceira.GestaoFinanceira.resources
-C:\TCC\GestaoFinanceira\GestaoFinanceira\obj\Debug\net6.0-windows\GestaoFinanceira.frmTipoDeLancamento.resources
 C:\TCC\GestaoFinanceira\GestaoFinanceira\bin\Debug\net6.0-windows\GestaoFinanceira.dll.config
 C:\TCC\GestaoFinanceira\GestaoFinanceira\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
 C:\TCC\GestaoFinanceira\GestaoFinanceira\bin\Debug\net6.0-windows\EntityFramework.dll

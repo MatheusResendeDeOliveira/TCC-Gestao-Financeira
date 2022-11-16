@@ -76,12 +76,6 @@ public partial class GestaoFinanceira : Form
                     ? false
                     : true;
 
-    private void btnNovoTipoDeMovimentacao_Click(object sender, EventArgs e)
-    {
-        frmTipoDeLancamento cadastro = new();
-        cadastro.ShowDialog();
-    }
-
     private void btnFiltrar_Click(object sender, EventArgs e)
     {
         if (txAno.Text == "")
