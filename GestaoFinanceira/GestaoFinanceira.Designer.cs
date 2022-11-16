@@ -306,6 +306,7 @@
             this.Controls.Add(this.lblInsiraSalario);
             this.Controls.Add(this.txtInsiraSalario);
             this.Controls.Add(this.btnSalvarSalario);
+            this.MaximizeBox = false;
             this.Name = "GestaoFinanceira";
             this.Text = "GestaoFinanceira";
             ((System.ComponentModel.ISupportInitialize)(this.dgvLancamentos)).EndInit();
